@@ -1,5 +1,5 @@
 
-//Authors Bo, xx, xx
+//Authors Bo, Xiaoyan Zheng, xx
 
 import javax.swing.*;
 import javax.swing.text.*;
