@@ -1,7 +1,6 @@
-// TextEditor.java
-// An example showing several DefaultEditorKit features. This class is designed
-// to be easily extended for additional functionality.
-//
+
+//Authors Bo, xx, xx
+
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -104,9 +103,9 @@ public class TextEditor extends JFrame {
 
   protected JTextComponent getTextComponent() { return textComp; }
 
-  // ********** ACTION INNER CLASSES ********** //
+  //ACTION INNER CLASSES//
 
-  // A very simple exit action
+  // An exit action
   public class ExitAction extends AbstractAction {
     public ExitAction() { super("Exit"); }
     public void actionPerformed(ActionEvent ev) { System.exit(0); }
