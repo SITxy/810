@@ -19,7 +19,7 @@ public class TextEditor extends JFrame {
 
   // Create an editor.
   public TextEditor() {
-    super("Swing Editor");
+    super("Chester's Editor");
     textComp = createTextComponent();
     makeActionsPretty(); 
     
