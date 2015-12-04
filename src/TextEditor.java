@@ -14,25 +14,27 @@ public class TextEditor extends JFrame {
   private Action saveAction = new SaveAction();
 
   private JTextComponent textComp;
-  private Hashtable actionHash = new Hashtable();
+  private Hashtable actionHash = new Hashtable(); //Didn't use it yet
 
 
   // Create an editor.
   public TextEditor() {
     super("Swing Editor");
     textComp = createTextComponent();
-    makeActionsPretty();
-
+    makeActionsPretty(); 
+    
+    //Design the appearance here 
     Container content = getContentPane();
     content.add(textComp, BorderLayout.CENTER);
     content.add(createToolBar(), BorderLayout.NORTH);
     setJMenuBar(createMenuBar());
-    setSize(1200, 800);
+    setSize(1200, 800); 
   }
 
   // Create the JTextComponent subclass.
   protected JTextComponent createTextComponent() {
     JTextArea ta = new JTextArea();
+    ta.setFont(new Font("Monospaced",Font.PLAIN,30));//change the typing font size here
     ta.setLineWrap(true);
     return ta;
   }
@@ -76,15 +78,21 @@ public class TextEditor extends JFrame {
 
   // Create a JMenuBar with file & edit menus.
   protected JMenuBar createMenuBar() {
-    JMenuBar menubar = new JMenuBar();
-    menubar.setFont(new Font("sans-serif", Font.PLAIN, 16));
+	
+	Font bigFont = new Font( "Serif", Font.BOLD, 24 ); //Set Menubar font size here
+	Font littleFont = new Font( "Monospaced", Font.ITALIC, 10 );
+	  
+	JMenuBar menubar = new JMenuBar();
+    menubar.add(Box.createRigidArea(new Dimension(10,30)));
     setJMenuBar(menubar);
     setSize(600, 400);
     JMenu file = new JMenu("File");
+    file.setFont( bigFont );
     JMenu edit = new JMenu("Edit");
+    edit.setFont( bigFont );
     menubar.add(file);
     menubar.add(edit);
-
+    //menubar.setFont(new Font("sans-serif", Font.PLAIN, 40));
     file.add(getOpenAction());
     file.add(getSaveAction());
     file.add(new ExitAction());
