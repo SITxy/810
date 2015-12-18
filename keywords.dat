@@ -38,6 +38,7 @@ return
 strictfp
 short
 static
+String
 super
 switch
 synchronized

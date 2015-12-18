@@ -1,3 +1,6 @@
+
+//Authors Bo Liu, Xiaoyan Zheng
+
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -15,13 +18,10 @@ public class Test extends JFrame {
 		
 		createTextfield();
 	
-        
-		
-		
 		makeActionsPretty();
 		createMenuBar();
 	    c.add(createToolBar(), BorderLayout.NORTH);
-		setSize(600,600);
+		setSize(1200,800);
 		setVisible(true);
 	}
 	
@@ -32,7 +32,7 @@ public class Test extends JFrame {
 		textPane.setCaretPosition(0);
 		JScrollPane scrollPane = new JScrollPane(textPane);
 		//textPane.setLineWrap(true);
-		//scrollPane.setPreferredSize(new Dimension(200,200));
+		//scrollPane.setPreferredSize(new Dimension(1500,1500));
 		textPane.getDocument().addDocumentListener(new Highlight(textPane));
 		c.add(scrollPane);
 
