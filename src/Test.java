@@ -1,10 +1,8 @@
 import javax.swing.*;
 import javax.swing.text.*;
-
 import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
-import java.util.Hashtable;
 
 public class Test extends JFrame {
 	private JTextPane textPane;
@@ -18,7 +16,7 @@ public class Test extends JFrame {
 		createTextfield();
 		makeActionsPretty();
 		createMenuBar();
-		
+	    c.add(createToolBar(), BorderLayout.NORTH);
 		setSize(600,600);
 		setVisible(true);
 	}
@@ -39,7 +37,7 @@ public class Test extends JFrame {
 	// Create a JMenuBar with file & edit menus.
 	protected void createMenuBar() {
 		Font bigFont = new Font( "sans-serif", Font.PLAIN, 16 ); //Set Menubar font size here
-		Font littleFont = new Font( "Monospaced", Font.ITALIC, 10 );
+		//Font littleFont = new Font( "Monospaced", Font.ITALIC, 10 );
 		
 		JMenuBar menubar = new JMenuBar();
 		menubar.add(Box.createRigidArea(new Dimension(0,10)));
@@ -53,11 +51,32 @@ public class Test extends JFrame {
 		menubar.add(edit);
 		
 		//menubar.setFont(new Font("sans-serif", Font.PLAIN, 40));
-		edit.add(textPane.getActionMap().get(DefaultEditorKit.cutAction));
-		edit.add(textPane.getActionMap().get(DefaultEditorKit.copyAction));
-		edit.add(textPane.getActionMap().get(DefaultEditorKit.pasteAction));
-		edit.add(textPane.getActionMap().get(DefaultEditorKit.selectAllAction));
+	    file.add(getOpenAction());
+	    file.add(getSaveAction());
+	    file.add(new ExitAction());
+	    edit.add(textPane.getActionMap().get(DefaultEditorKit.cutAction));
+	    edit.add(textPane.getActionMap().get(DefaultEditorKit.copyAction));
+	    edit.add(textPane.getActionMap().get(DefaultEditorKit.pasteAction));
+	    edit.add(textPane.getActionMap().get(DefaultEditorKit.selectAllAction));
 	}
+	
+	  // Create a simple JToolBar with some buttons.
+	  protected JToolBar createToolBar() {
+	    JToolBar bar = new JToolBar();
+
+	    // Add simple actions for opening & saving.
+	    bar.add(getOpenAction()).setText("");
+	    bar.add(getSaveAction()).setText("");
+	    bar.addSeparator();
+
+	    // Add cut/copy/paste buttons.
+	    bar.add(textPane.getActionMap().get(DefaultEditorKit.cutAction)).setText("");
+	    bar.add(textPane.getActionMap().get(
+	              DefaultEditorKit.copyAction)).setText("");
+	    bar.add(textPane.getActionMap().get(
+	              DefaultEditorKit.pasteAction)).setText("");
+	    return bar;
+	  }
 	
 	// Add icons and friendly names to actions we care about.
 	protected void makeActionsPretty() {
@@ -129,9 +148,6 @@ public class Test extends JFrame {
 	    }
 	  }
 
-	  
-	  
-	  
 	  // An action that saves the document to a file
 	  class SaveAction extends AbstractAction {
 	    public SaveAction() {
