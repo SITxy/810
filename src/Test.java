@@ -14,6 +14,10 @@ public class Test extends JFrame {
 		super("TextEditor");
 		
 		createTextfield();
+	
+        
+		
+		
 		makeActionsPretty();
 		createMenuBar();
 	    c.add(createToolBar(), BorderLayout.NORTH);

@@ -20,7 +20,9 @@ public class Highlight implements DocumentListener {
 		normalStyle = ((StyledDocument)editor.getDocument()).addStyle("Keyword_Style", null);
 		StyleConstants.setForeground(keywordStyle, new Color(160,32,240)); // set keywords purple
 		StyleConstants.setBold(keywordStyle, true); // set keywords font bold
+		StyleConstants.setFontSize(keywordStyle, 25);
 		StyleConstants.setForeground(normalStyle, Color.BLACK); // set normal words black
+		StyleConstants.setFontSize(normalStyle, 25);
 	}
 
 	public char getCharAt(Document doc, int pos) throws BadLocationException {
