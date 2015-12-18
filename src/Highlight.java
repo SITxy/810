@@ -22,10 +22,6 @@ public class Highlight implements DocumentListener {
 		StyleConstants.setBold(keywordStyle, true); // set keywords font bold
 		StyleConstants.setForeground(normalStyle, Color.BLACK); // set normal words black
 	}
-	
-	public void highlight(StyledDocument doc, int pos, int len ) throws BadLocationException{
-		
-	}
 
 	public char getCharAt(Document doc, int pos) throws BadLocationException {
 		return doc.getText(pos, 1).charAt(0);
@@ -56,7 +52,6 @@ public class Highlight implements DocumentListener {
 		while (start < end) {
 			ch = getCharAt(doc, start);
 			if (Character.isLetter(ch) || ch == '_') {
-			
 				start = colouringWord(doc, start);
 			} else {
 				SwingUtilities.invokeLater(new ColouringTask(doc, start, 1, normalStyle));

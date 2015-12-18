@@ -16,7 +16,6 @@ public class TextEditor extends JFrame {
   private JTextComponent textComp;
   private Hashtable actionHash = new Hashtable(); //Didn't use it yet
 
-
   // Create an editor.
   public TextEditor() {
     super("Chester's Editor");
@@ -155,9 +154,6 @@ public class TextEditor extends JFrame {
     }
   }
 
-  
-  
-  
   // An action that saves the document to a file
   class SaveAction extends AbstractAction {
     public SaveAction() {
@@ -193,6 +189,7 @@ public class TextEditor extends JFrame {
       }
     }
   }
+  
   public static void main(String[] args) {
 	    TextEditor editor = new TextEditor();
 	    editor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
